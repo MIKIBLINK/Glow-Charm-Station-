@@ -1,5 +1,26 @@
+// --- JavaScript for Glow & Charm Station ---
+// This script handles dark mode, language switching, and the booking form submission.
+
 // Function to show a custom message box instead of alert()
-// (Removed duplicate declaration to avoid redeclaration error)
+const showMessageBox = (message, type) => {
+    const msgBox = document.getElementById('message-box');
+    msgBox.textContent = message;
+    msgBox.classList.remove('hidden');
+
+    if (type === 'success') {
+        msgBox.style.backgroundColor = '#10B981'; // Green
+    } else if (type === 'error') {
+        msgBox.style.backgroundColor = '#EF4444'; // Red
+    }
+
+    msgBox.classList.add('show');
+    setTimeout(() => {
+        msgBox.classList.remove('show');
+        setTimeout(() => {
+            msgBox.classList.add('hidden');
+        }, 500);
+    }, 3000);
+};
 
 // Translations object with complete Khmer translations
 const translations = {
@@ -26,11 +47,11 @@ const translations = {
         'service-desc-4': 'A premium BB mesotherapy treatment that provides a semi-permanent foundation effect, evening out skin tone and texture for a flawless look.',
         'about-heading': 'About Us',
         'doctor-name-1': 'Mrs. Rachana',
-        'doctor-title-1': 'Founder & Head Aesthetician',
-        'doctor-bio-1': 'A certified aesthetician with over 15 years of experience in the beauty and wellness industry. Her passion for helping people feel confident and beautiful led her to found Glow & Charm Station.',
+        'doctor-title-1': 'Head Aesthetician',
+        'doctor-bio-1': 'A certified aesthetician with over 15 years of experience in the beauty.',
         'doctor-name-2': 'Mrs. Dalica',
         'doctor-title-2': 'Senior Beauty Specialist',
-        'doctor-bio-2': 'With a focus on advanced treatments, Mrs. Dalica brings her extensive knowledge of innovative skincare to our team. She is committed to staying up-to-date with the latest techniques to provide exceptional results.',
+        'doctor-bio-2': 'With a focus on advanced treatments, Mrs. Dalica brings her extensive knowledge of innovative skincare .',
         'about-text-1': 'At Glow & Charm Station, our passion is to empower you to look and feel your best. We believe that true beauty comes from a combination of professional care, premium products, and a serene, welcoming environment.',
         'about-text-2': 'Our team of certified specialists is dedicated to providing personalized treatments that cater to your unique needs. From the moment you step through our doors, you\'ll be treated with the utmost care and professionalism.',
         'about-text-3': 'We\'re more than just a clinic; we\'re your partner in wellness and beauty. Come and experience the difference.',
@@ -78,11 +99,11 @@ const translations = {
         'service-desc-4': 'ការព្យាបាលមេសូ BB កម្រិតខ្ពស់ដែលផ្តល់នូវប្រសិទ្ធិភាពគ្រឹះពាក់កណ្តាលអចិន្ត្រៃយ៍ ធ្វើឱ្យពណ៌ស្បែកនិងផ្ទៃស្បែកស្មើគ្នាដើម្បីឱ្យមើលទៅគ្មានកំហុស។',
         'about-heading': 'អំពីយើង',
         'doctor-name-1': 'អ្នកគ្រូពេទ្យ រចនា',
-        'doctor-title-1': 'ស្ថាបនិក និងអ្នកជំនាញផ្នែកថែរក្សាសម្រស់',
-        'doctor-bio-1': 'អ្នកជំនាញថែរក្សាសម្រស់ដែលមានបទពិសោធន៍ជាង ១៥ ឆ្នាំក្នុងវិស័យសម្រស់ និងសុខភាព។ ចំណង់ចំណូលចិត្តរបស់គាត់ក្នុងការជួយមនុស្សឱ្យមានទំនុកចិត្តនិងស្រស់ស្អាតបានជំរុញឱ្យគាត់បង្កើត Glow & Charm Station។',
+        'doctor-title-1': 'អ្នកជំនាញផ្នែកថែរក្សាសម្រស់',
+        'doctor-bio-1': 'អ្នកជំនាញថែរក្សាសម្រស់ដែលមានបទពិសោធន៍ជាង ១៥ ឆ្នាំក្នុងវិស័យសម្រស់ ។ ',
         'doctor-name-2': 'អ្នកគ្រូពេទ្យ ដាលីកា',
         'doctor-title-2': 'អ្នកជំនាញសម្រស់ជាន់ខ្ពស់',
-        'doctor-bio-2': 'ជាមួយនឹងការផ្តោតលើការព្យាបាលកម្រិតខ្ពស់ អ្នកគ្រូពេទ្យ ដាលីកា នាំមកនូវចំណេះដឹងទូលំទូលាយរបស់គាត់អំពីការថែរក្សាស្បែកប្រកបដោយភាពច្នៃប្រឌិតដល់ក្រុមរបស់យើង។ គាត់ប្តេជ្ញាចិត្តក្នុងការធ្វើបច្ចុប្បន្នភាពជាមួយបច្ចេកទេសចុងក្រោយបំផុតដើម្បីផ្តល់លទ្ធផលល្អបំផុត។',
+        'doctor-bio-2': 'ជាមួយនឹងការផ្តោតលើការព្យាបាលកម្រិតខ្ពស់ អ្នកគ្រូពេទ្យ ដាលីកា នាំមកនូវចំណេះដឹងទូលំទូលាយរបស់គាត់អំពីការថែរក្សាស្បែកប្រកបដោយភាពច្នៃប្រឌិត។',
         'about-text-1': 'នៅ Glow & Charm Station ចំណង់ចំណូលចិត្តរបស់យើងគឺដើម្បីផ្តល់អំណាចឱ្យអ្នកមើលទៅនិងមានអារម្មណ៍ល្អបំផុត។ យើងជឿថាភាពស្រស់ស្អាតពិតប្រាកដមកពីការរួមបញ្ចូលគ្នានៃការថែទាំប្រកបដោយវិជ្ជាជីវៈ ផលិតផលពិសេស និងបរិយាកាសស្ងប់ស្ងាត់ និងស្វាគមន៍។',
         'about-text-2': 'ក្រុមអ្នកជំនាញដែលមានការទទួលស្គាល់របស់យើងប្តេជ្ញាផ្តល់ការព្យាបាលផ្ទាល់ខ្លួនដែលបំពេញតម្រូវការពិសេសរបស់អ្នក។ ចាប់ពីពេលដែលអ្នកបោះជំហានចូលទ្វាររបស់យើង អ្នកនឹងត្រូវបានទទួលការព្យាបាលដោយការយកចិត្តទុកដាក់និងវិជ្ជាជីវៈខ្ពស់បំផុត។',
         'about-text-3': 'យើងមិនត្រឹមតែជាគ្លីនិកប៉ុណ្ណោះទេ យើងជាដៃគូរបស់អ្នកក្នុងសុខភាពនិងសម្រស់។ សូមមកទទួលបទពិសោធន៍ភាពខុសគ្នា។',
@@ -113,26 +134,6 @@ const translations = {
 const BOT_TOKEN = '8253130135:AAFmkbY5VA84n-vECGZeiDIRH7YhdIjm3wI';
 const CHAT_ID = '5711509401';
 
-// Function to show a custom message box instead of alert()
-const showMessageBox = (message, type) => {
-    const msgBox = document.getElementById('message-box');
-    msgBox.textContent = message;
-    msgBox.classList.remove('hidden');
-
-    if (type === 'success') {
-        msgBox.style.backgroundColor = '#10B981'; // Green
-    } else if (type === 'error') {
-        msgBox.style.backgroundColor = '#EF4444'; // Red
-    }
-
-    msgBox.classList.add('show');
-    setTimeout(() => {
-        msgBox.classList.remove('show');
-        setTimeout(() => {
-            msgBox.classList.add('hidden');
-        }, 500);
-    }, 3000);
-};
 
 // Script for dark mode, language toggle, and form submission
 document.addEventListener('DOMContentLoaded', () => {
@@ -145,8 +146,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactSection = document.getElementById('contact');
     const confirmationSection = document.getElementById('booking-confirmation-page');
 
-    // --- Dark Mode Toggle ---
-    const currentTheme = localStorage.getItem('theme');
+    /// --- Dark Mode Toggle ---
+    const currentTheme = localStorage.getItem('classic-theme') || 'light';
     if (currentTheme === 'dark') {
         document.documentElement.classList.add('dark');
         themeToggleBtn.setAttribute('aria-pressed', 'true');
@@ -167,6 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
             themeToggleBtn.setAttribute('aria-pressed', 'true');
         }
     });
+
 
     // --- Language Toggle ---
     const updateContent = (lang) => {
@@ -210,13 +212,12 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileMenu.classList.toggle('hidden');
     });
 
-    // --- API and Form Submission Logic (Updated) ---
+    // --- API and Form Submission Logic ---
     const submitBooking = async (bookingData) => {
         const currentLang = document.body.classList.contains('khmer-font') ? 'km' : 'en';
 
-        // Construct the message text for Telegram
+        // Construct the message text for Telegram using Markdown
         const text = `🎉 *New Booking Received!* 🎉
-        
 *Name:* ${bookingData.name}
 *Phone:* ${bookingData.phone}
 *Service:* ${bookingData.service}
@@ -264,6 +265,7 @@ document.addEventListener('DOMContentLoaded', () => {
     bookingForm.addEventListener('submit', (e) => {
         e.preventDefault();
 
+        // Get form values
         const name = document.getElementById('name').value;
         const phone = document.getElementById('phone').value;
         const serviceSelect = document.getElementById('service');
@@ -272,6 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const time = document.getElementById('time').value;
         const message = document.getElementById('message').value;
 
+        // Form validation
         if (!name || !phone || serviceSelect.value === "" || !date || !time) {
             const currentLang = document.body.classList.contains('khmer-font') ? 'km' : 'en';
             showMessageBox(translations[currentLang]['error-message-fields'], 'error');
