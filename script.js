@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenuBtn = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
     const bookingForm = document.getElementById('booking-form');
-    const contactSection = document.getElementById('contact');
+    const contactSection = document.getElementById('booking');
     const confirmationSection = document.getElementById('booking-confirmation-page');
 
     /// --- Dark Mode Toggle ---
@@ -247,6 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Populate confirmation page with form data
             document.getElementById('details-name').textContent = bookingData.name;
+            document.getElementById('details-phone').textContent = bookingData.phone;
             document.getElementById('details-service').textContent = bookingData.service;
             document.getElementById('details-date').textContent = bookingData.date;
             document.getElementById('details-time').textContent = bookingData.time;
