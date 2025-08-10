@@ -7,7 +7,7 @@ body {
 }
 
 .khmer-font {
-    font-family: 'Preahvihear', "Playfair Display", serif;
+    font-family: 'Preahvihear', serif, "Playfair Display";
 }
 
 .bg-overlay {
@@ -57,3 +57,4 @@ body {
 #theme-toggle[aria-pressed="false"] .sun-icon {
     transform: scale(1);
 }
+
