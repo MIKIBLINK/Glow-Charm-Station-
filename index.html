@@ -7,10 +7,9 @@
     <title id="page-title">Glow & Charm Station</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
-        rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="/2nobg.png">
     <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -23,8 +22,8 @@
 
     <header class="bg-white shadow-lg sticky top-0 z-50 dark:bg-gray-800">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="flex items-center space-x-2">
-                <img src="/nobg.png" alt="Glow & Charm Station Logo" class="h-20 w-auto">
+            <a href="#" class="flex items-center space-x-2" style="width: auto; font-size: 24px; color: #ff00f2;">
+                <img src="/nobg.png" alt="Glow & Charm Station Logo" class="h-20 w-auto">Glow & Charm Station
             </a>
             <nav class="flex items-center space-x-4 md:space-x-8">
                 <ul class="hidden md:flex space-x-6">
@@ -35,9 +34,12 @@
                             class="text-gray-600 hover:text-purple-600 transition duration-300 font-semibold dark:text-gray-400">About
                             Us</a>
                     </li>
-                    <li><a href="#contact" id="nav-book"
+                    <li><a href="#booking" id="nav-book"
                             class="text-gray-600 hover:text-purple-600 transition duration-300 font-semibold dark:text-gray-400">Book
                             a Visit</a></li>
+                    <li><a href="#contact" id="nav-contact"
+                            class="text-gray-600 hover:text-purple-600 transition duration-300 font-semibold dark:text-gray-400">Contact</a>
+                    </li>
                 </ul>
                 <div class="flex items-center space-x-2">
                     <button id="lang-km" aria-label="Switch to Khmer"
@@ -46,7 +48,7 @@
                     <button id="lang-en" aria-label="Switch to English"
                         class="text-gray-600 font-semibold hover:text-purple-600 dark:text-gray-400">EN</button>
                 </div>
-                <button id="theme-toggle" aria-pressed="false"
+                <button id="theme-toggle"
                     class="p-2 rounded-full text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 transition duration-300">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sun-icon" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor" stroke-width="2">
@@ -78,9 +80,13 @@
                         class="text-gray-600 hover:text-purple-600 transition duration-300 font-semibold dark:text-gray-400">About
                         Us</a>
                 </li>
-                <li><a href="#contact" id="nav-book-mobile"
+                <li><a href="#booking" id="nav-book-mobile"
                         class="text-gray-600 hover:text-purple-600 transition duration-300 font-semibold dark:text-gray-400">Book
                         a Visit</a></li>
+                <li><a href="#contact" id="nav-contact-mobile"
+                        class="text-gray-600 hover:text-purple-600 transition duration-300 font-semibold dark:text-gray-400">Contact</a>
+                </li>
+                <li>
             </ul>
         </div>
     </header>
@@ -98,7 +104,7 @@
                 <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto drop-shadow-sm" id="hero-subheading">Your journey to
                     beauty and wellness
                     begins here. We're dedicated to helping you feel your best, inside and out.</p>
-                <a href="#contact" id="hero-cta"
+                <a href="#booking" id="hero-cta"
                     class="bg-white text-purple-600 px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-200 transition duration-300 shadow-xl drop-shadow-md">Book
                     an Appointment</a>
             </div>
@@ -181,17 +187,12 @@
                             <img src="./1doc.JPG" alt="Mrs. Rachana"
                                 class="rounded-full shadow-lg mx-auto w-48 h-48 mb-6">
                             <h3 class="text-2xl font-bold text-center mb-2" id="doctor-name-1">Mrs. Rachana</h3>
-                            <p class="text-purple-600 font-semibold text-center mb-4" id="doctor-title-1">Founder &
+                            <p class="text-purple-600 font-semibold text-center mb-4" id="doctor-title-1">
                                 Head Aesthetician</p>
                             <p class="text-lg text-gray-700 dark:text-gray-300" id="doctor-bio-1">
-                                A certified aesthetician with over 15 years of experience in the beauty and wellness
-                                industry. Her passion for helping people feel confident and beautiful led her to found
-                                Glow & Charm Station.
+                                A certified aesthetician with over 15 years of experience in the beauty .
                             </p>
-                            <p class="text-lg text-gray-700 dark:text-gray-300" id="doctor-bio-2">
-                                She specializes in advanced skincare techniques and personalized treatment plans,
-                                ensuring every client receives the highest level of care.
-                            </p>
+
                         </div>
                         <div class="bg-white p-8 rounded-2xl shadow-xl dark:bg-gray-800 drop-shadow-xl">
                             <img src="./doc.jpg" alt="Mrs. Dalica"
@@ -200,14 +201,10 @@
                             <p class="text-purple-600 font-semibold text-center mb-4" id="doctor-title-2">Senior
                                 Aesthetician & Skin Specialist</p>
                             <p class="text-lg text-gray-700 dark:text-gray-300" id="doctor-bio-3">
-                                Mrs. Dalica is a highly-skilled and passionate skin specialist, dedicated to creating
-                                personalized skincare routines for our clients. She focuses on advanced treatments to
+                                Focuses on advanced treatments to
                                 combat common skin concerns like acne and hyperpigmentation.
                             </p>
-                            <p class="text-lg text-gray-700 dark:text-gray-300" id="doctor-bio-4">
-                                She believes in a holistic approach to beauty, combining her expertise with a genuine
-                                commitment to helping each client achieve their unique skin goals.
-                            </p>
+
                         </div>
                     </div>
                     <div class="w-full md:w-1/2 text-left">
@@ -230,7 +227,7 @@
             </div>
         </section>
 
-        <section id="contact" class="container mx-auto px-6 py-20">
+        <section id="booking" class="container mx-auto px-6 py-20">
             <h2 class="text-4xl md:text-5xl font-bold text-center mb-8 text-gray-900 dark:text-white"
                 id="contact-heading">Book an Appointment</h2>
             <div
@@ -327,35 +324,58 @@
                     class="mt-8 bg-purple-600 text-white px-8 py-3 rounded-full font-bold hover:bg-purple-700 transition duration-300 shadow-lg drop-shadow-md"
                     id="book-again-button">Book Another Appointment</button>
             </div>
-        </section>
-        <!-- Contact Section with Social Links -->
-        <section id="contact" class="py-16 bg-gray-100 dark:bg-gray-800">
-            <div class="container mx-auto px-6 md:px-12 lg:px-20 text-center">
-                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">Contact Us</h2>
-                <p class="mb-6 text-gray-700 dark:text-gray-300">
-                    Connect with us on social media or send us a message!
-                </p>
 
-                <!-- Social Media Links -->
-                <div class="flex justify-center space-x-6 text-3xl">
-                    <a href="https://www.facebook.com/share/1B3t4nUPKL/?mibextid=wwXIfr" target="_blank"
-                        class="text-blue-600 hover:text-blue-800">
-                        <i class="fab fa-facebook"></i>
-                    </a>
-                    <a href="https://t.me/+855967797222" target="_blank" class="text-blue-400 hover:text-blue-600">
-                        <i class="fab fa-telegram"></i>
-                    </a>
-                    <a href="https://www.tiktok.com/@glowcharmstation313?_t=ZS-8yjyz46kTvF&_r=1" target="_blank"
-                        class="text-black dark:text-white hover:text-gray-500">
-                        <i class="fab fa-tiktok"></i>
-                    </a>
-                    <a href="https://www.google.com/maps/place/YourBusinessName" target="_blank"
-                        class="text-red-500 hover:text-red-700">
-                        <i class="fab fa-google"></i>
-                    </a>
-                </div>
-            </div>
         </section>
+
+        <!DOCTYPE html>
+        <html lang="en">
+
+        <head>
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <title>Contact Us Example</title>
+            <script src="https://cdn.tailwindcss.com"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+                integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13DqeP1R9UCeE2yKg=="
+                crossorigin="anonymous" referrerpolicy="no-referrer" />
+        </head>
+
+        <body class="bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100">
+
+            <section id="contact" class="py-16">
+                <div class="container mx-auto px-6 md:px-12 lg:px-20 text-center">
+                    <h2 class="text-3xl font-bold mb-8">Contact Us</h2>
+                    <p class="mb-6 text-gray-700 dark:text-gray-300">
+                        Connect with us on social media .
+                    </p>
+
+                    <!-- Social Media Links -->
+                    <div class="flex justify-center space-x-6 text-3xl">
+                        <a href="https://www.facebook.com/share/1B3t4nUPKL/?mibextid=wwXIfr"
+                            class="text-blue-600 hover:text-blue-800" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+                        <a href="https://t.me/+855967797222" class="text-blue-400 hover:text-blue-600"
+                            aria-label="Telegram">
+                            <i class="fa-brands fa-telegram"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@glowcharmstation313?_t=ZS-8yjyz46kTvF&_r=1"
+                            class="text-black dark:text-purple-700 hover:text-purple-400" aria-label="TikTok">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </a>
+                        <a href="https://maps.app.goo.gl/nq2hsePJ4CzwrGp38" class="text-green-700 hover:text-red-500"
+                            aria-label="Google Maps">
+                            <i class="fa-solid fa-shop"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+        </body>
+
+        </html>
+
+
     </main>
 
 
