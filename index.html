@@ -5,89 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="page-title">Glow & Charm Station</title>
-    <link rel="icon" type="image/x-icon" href="/nobg.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/2nobg.png">
+    <link rel="stylesheet" href="/style.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Import Google Fonts for a modern, clean look */
-        @import url('https://fonts.googleapis.com/css2?family=Preahvihear&display=swap');
-
-        /* Set the default font for the entire body */
-        body {
-            font-family: 'Preahvihear', sans-serif;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        /* This class will be applied to the body for Khmer text */
-        .khmer-font {
-            font-family: 'Preahvihear', sans-serif;
-        }
-
-        /* Style for a subtle image overlay on the hero section */
-        .bg-overlay {
-            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
-        }
-
-        /* Base text styling for the theme toggle button */
-        #theme-toggle {
-            color: #175fc4;
-            /* gray-600 */
-            font-weight: 600;
-            /* semibold */
-            transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        /* Hover text color */
-        #theme-toggle:hover {
-            color: #48b8ec;
-            /* puple-500 */
-        }
-
-        /* Dark mode text color */
-        @media (prefers-color-scheme: dark) {
-            #theme-toggle {
-                color: #3460ac;
-                /* gray-400 */
-            }
-        }
-
-        /* Dark mode icon styling for the toggle button */
-        #theme-toggle svg {
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: absolute;
-            position-anchor: center;
-            position: relative;
-
-
-            transform: translate(-50%, -50%);
-        }
-
-        /* State when the button is not "pressed" (light mode) */
-        #theme-toggle[aria-pressed="false"] .moon-icon {
-            transform: scale(0);
-            top: fit-content;
-            left: auto;
-            /* Hide the moon icon */
-        }
-
-        /* State when the button is "pressed" (dark mode) */
-        #theme-toggle[aria-pressed="true"] .sun-icon {
-            transform: scale(0);
-            /* Hide the sun icon */
-        }
-
-        #theme-toggle[aria-pressed="true"] .moon-icon {
-            transform: scale(1);
-            top: fit-content;
-            left: auto;
-            /* Show the moon icon */
-        }
-
-        #theme-toggle[aria-pressed="false"] .sun-icon {
-            transform: scale(1);
-            /* Show the sun icon */
-        }
-    </style>
-    <!-- Configure Tailwind to use dark mode based on the 'dark' class -->
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -97,37 +21,31 @@
 
 <body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200">
 
-    <!-- Header Section -->
-    <header class="bg-white shadow-sm sticky top-0 z-50 dark:bg-gray-800">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <!-- Clinic Logo/Name -->
-            <img src="/nobg.png" alt="" style="max-width:150px;">
-            <a href="#" class="text-2xl font-bold text-gray-900 tracking-wider dark:text-white" id="site-title">Glow &
-                Charm Station</a>
-            <!-- Navigation Menu and Dark Mode Toggle -->
-            <nav class="flex items-center space-x-4 md:space-x-6">
+    <header class="bg-white shadow-lg sticky top-0 z-50 dark:bg-gray-800">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-2">
+                <img src="/nobg.png" alt="Glow & Charm Station Logo" class="h-20 w-auto">
+            </a>
+            <nav class="flex items-center space-x-4 md:space-x-8">
                 <ul class="hidden md:flex space-x-6">
                     <li><a href="#services" id="nav-services"
-                            class="text-gray-600 hover:text-purple-500 transition duration-300 font-semibold dark:text-gray-400">Services</a>
+                            class="text-gray-600 hover:text-purple-600 transition duration-300 font-semibold dark:text-gray-400">Services</a>
                     </li>
                     <li><a href="#about" id="nav-about"
-                            class="text-gray-600 hover:text-purple-500 transition duration-300 font-semibold dark:text-gray-400">About
+                            class="text-gray-600 hover:text-purple-600 transition duration-300 font-semibold dark:text-gray-400">About
                             Us</a>
                     </li>
                     <li><a href="#contact" id="nav-book"
-                            class="text-gray-600 hover:text-puple-500 transition duration-300 font-semibold dark:text-gray-400">Book
-                            a
-                            Visit</a></li>
+                            class="text-gray-600 hover:text-purple-600 transition duration-300 font-semibold dark:text-gray-400">Book
+                            a Visit</a></li>
                 </ul>
-                <!-- Language Toggles - KM is now first -->
                 <div class="flex items-center space-x-2">
-                    <button id="lang-km"
-                        class="text-gray-600 font-semibold hover:text-pink-500 dark:text-gray-400">ខ្មែរ</button>
+                    <button id="lang-km" aria-label="Switch to Khmer"
+                        class="text-gray-600 font-semibold hover:text-purple-600 dark:text-gray-400">ខ្មែរ</button>
                     <span class="text-gray-400">|</span>
-                    <button id="lang-en"
-                        class="text-gray-600 font-semibold hover:text-pink-500 dark:text-gray-400">EN</button>
+                    <button id="lang-en" aria-label="Switch to English"
+                        class="text-gray-600 font-semibold hover:text-purple-600 dark:text-gray-400">EN</button>
                 </div>
-                <!-- Dark Mode Toggle Button -->
                 <button id="theme-toggle" aria-pressed="false"
                     class="p-2 rounded-full text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 transition duration-300">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sun-icon" fill="none" viewBox="0 0 24 24"
@@ -141,9 +59,8 @@
                             d="M20.354 15.354A9 9 0 118.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
                     </svg>
                 </button>
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-button"
-                    class="md:hidden text-gray-600 hover:text-pink-500 transition duration-300 dark:text-gray-400">
+                <button id="mobile-menu-button" aria-label="Toggle mobile menu"
+                    class="md:hidden text-gray-600 hover:text-purple-600 transition duration-300 dark:text-gray-400">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -152,157 +69,145 @@
                 </button>
             </nav>
         </div>
-        <!-- Mobile Menu (initially hidden) -->
         <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md dark:bg-gray-800">
             <ul class="flex flex-col items-center py-4 space-y-4">
                 <li><a href="#services" id="nav-services-mobile"
-                        class="text-gray-600 hover:text-pink-500 transition duration-300 font-semibold dark:text-gray-400">Services</a>
+                        class="text-gray-600 hover:text-purple-600 transition duration-300 font-semibold dark:text-gray-400">Services</a>
                 </li>
                 <li><a href="#about" id="nav-about-mobile"
-                        class="text-gray-600 hover:text-pink-500 transition duration-300 font-semibold dark:text-gray-400">About
+                        class="text-gray-600 hover:text-purple-600 transition duration-300 font-semibold dark:text-gray-400">About
                         Us</a>
                 </li>
                 <li><a href="#contact" id="nav-book-mobile"
-                        class="text-gray-600 hover:text-pink-500 transition duration-300 font-semibold dark:text-gray-400">Book
-                        a
-                        Visit</a></li>
+                        class="text-gray-600 hover:text-purple-600 transition duration-300 font-semibold dark:text-gray-400">Book
+                        a Visit</a></li>
             </ul>
         </div>
     </header>
 
     <main>
-        <!-- Hero Section -->
         <section id="hero"
-            class="relative bg-pink-500 bg-cover bg-center h-[500px] md:h-[600px] flex items-center justify-center text-center text-white p-4 rounded-b-3xl"
-            style="background-image: url('https://placehold.co/1500x800/d19f8d/ffffff?text=Clinic+Interior');">
-            <div class="bg-overlay absolute inset-0 rounded-b-3xl"><img src="./poster1.jpg" alt=""
-                    style="color: #3460ac62;"></div>
-            <div class="z-10">
-                <h1 class="text-4xl md:text-6xl font-bold mb-4 drop-shadow-md" id="hero-heading">Discover Your Radiance
+            class="relative h-[500px] md:h-[600px] flex items-center justify-center text-center text-white p-6 rounded-b-3xl overflow-hidden">
+            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('./poster1.jpg');"></div>
+            <div
+                class="absolute inset-0 bg-purple-900 bg-opacity-70 backdrop-filter backdrop-blur-sm rounded-b-3xl drop-shadow-2xl">
+            </div>
+            <div class="z-10 relative">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg" id="hero-heading">Discover Your Radiance
                 </h1>
                 <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto drop-shadow-sm" id="hero-subheading">Your journey to
                     beauty and wellness
                     begins here. We're dedicated to helping you feel your best, inside and out.</p>
                 <a href="#contact" id="hero-cta"
-                    class="bg-white text-pink-500 px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-100 transition duration-300 shadow-lg">Book
+                    class="bg-white text-purple-600 px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-200 transition duration-300 shadow-xl drop-shadow-md">Book
                     an Appointment</a>
             </div>
         </section>
 
-        <!-- Services Section -->
-        <section id="services" class="container mx-auto px-4 py-16">
+        <section id="services" class="container mx-auto px-6 py-20">
             <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 text-gray-900 dark:text-white"
                 id="services-heading">Our Services</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service Card 1 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div
-                    class="service-card bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 dark:bg-gray-800">
+                    class="service-card bg-white bg-opacity-80 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300 transform hover:scale-105 dark:bg-gray-800 dark:bg-opacity-80 drop-shadow-xl">
                     <div
-                        class="flex items-center justify-center h-16 w-16 bg-pink-100 rounded-full mx-auto mb-6 dark:bg-pink-900">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-pink-500" fill="none"
+                        class="flex items-center justify-center h-16 w-16 bg-purple-100 rounded-full mx-auto mb-6 dark:bg-purple-900 drop-shadow-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-600" fill="none"
                             viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.121 2.121m-2.121-2.121l-2.121 2.121m0 16l2.121-2.121m-2.121 2.121l-2.121-2.121M16 5h2m-2 0h-2m2 0v2m0-2v-2" />
                         </svg>
                     </div>
                     <h3 class="text-2xl font-semibold mb-3 service-title" id="service-title-1">Set A</h3>
-                    <p class="text-gray-600 dark:text-gray-400 service-description" id="service-desc-1">Customized
-                        treatments designed to rejuvenate, cleanse, and nourish your skin, leaving you with a healthy,
-                        vibrant glow.</p>
+                    <p class="text-gray-600 dark:text-gray-400 service-description" id="service-desc-1">
+                        Customized treatments designed to rejuvenate, cleanse, and nourish your skin, leaving you with a
+                        healthy, vibrant glow.</p>
                 </div>
-                <!-- Service Card 2 -->
                 <div
-                    class="service-card bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 dark:bg-gray-800">
+                    class="service-card bg-white bg-opacity-80 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300 transform hover:scale-105 dark:bg-gray-800 dark:bg-opacity-80 drop-shadow-xl">
                     <div
-                        class="flex items-center justify-center h-16 w-16 bg-pink-100 rounded-full mx-auto mb-6 dark:bg-pink-900">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-pink-500" fill="none"
+                        class="flex items-center justify-center h-16 w-16 bg-purple-100 rounded-full mx-auto mb-6 dark:bg-purple-900 drop-shadow-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-600" fill="none"
                             viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-semibold mb-3 service-title" id="service-title-2">Set B
-                    </h3>
-                    <p class="text-gray-600 dark:text-gray-400 service-description" id="service-desc-2">Indulge in a
-                        range of relaxing massages and body treatments that melt away stress and revitalize your spirit.
-                    </p>
+                    <h3 class="text-2xl font-semibold mb-3 service-title" id="service-title-2">Set B</h3>
+                    <p class="text-gray-600 dark:text-gray-400 service-description" id="service-desc-2">
+                        Indulge in a range of relaxing body massages and treatments that melt away stress and revitalize
+                        your spirit.</p>
                 </div>
-                <!-- Service Card 3 -->
                 <div
-                    class="service-card bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 dark:bg-gray-800">
+                    class="service-card bg-white bg-opacity-80 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300 transform hover:scale-105 dark:bg-gray-800 dark:bg-opacity-80 drop-shadow-xl">
                     <div
-                        class="flex items-center justify-center h-16 w-16 bg-pink-100 rounded-full mx-auto mb-6 dark:bg-pink-900">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-pink-500" fill="none"
+                        class="flex items-center justify-center h-16 w-16 bg-purple-100 rounded-full mx-auto mb-6 dark:bg-purple-900 drop-shadow-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-600" fill="none"
                             viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M16 16h.01" />
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-semibold mb-3 service-title" id="service-title-3">Set VIP (Meso)
-                    </h3>
-                    <p class="text-gray-600 dark:text-gray-400 service-description" id="service-desc-3">Experience
-                        professional and gentle hair removal services for smooth, flawless skin with lasting results.
-                    </p>
+                    <h3 class="text-2xl font-semibold mb-3 service-title" id="service-title-3">Set VIP (Meso)</h3>
+                    <p class="text-gray-600 dark:text-gray-400 service-description" id="service-desc-3">
+                        Our professional mesotherapy treatment delivers vitamins and nutrients directly into the skin to
+                        improve texture, tone, and overall radiance.</p>
                 </div>
-                <!-- Service Card 4 -->
                 <div
-                    class="service-card bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 dark:bg-gray-800">
+                    class="service-card bg-white bg-opacity-80 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300 transform hover:scale-105 dark:bg-gray-800 dark:bg-opacity-80 drop-shadow-xl">
                     <div
-                        class="flex items-center justify-center h-16 w-16 bg-pink-100 rounded-full mx-auto mb-6 dark:bg-green-900">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-500" fill="none"
+                        class="flex items-center justify-center h-16 w-16 bg-purple-100 rounded-full mx-auto mb-6 dark:bg-purple-900 drop-shadow-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-600" fill="none"
                             viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M16 16h.01" />
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-semibold mb-3 service-title" id="service-title-3">Set VVIP (BB Meso)</h3>
-                    </h3>
-                    <p class="text-gray-600 dark:text-gray-400 service-description" id="service-desc-3">Experience
-                        professional and gentle hair removal services for smooth, flawless skin with lasting results.
-                    </p>
+                    <h3 class="text-2xl font-semibold mb-3 service-title" id="service-title-4">Set VVIP (BB Meso)</h3>
+                    <p class="text-gray-600 dark:text-gray-400 service-description" id="service-desc-4">
+                        Experience our signature BB Meso Glow treatment, a semi-permanent foundation that evens skin
+                        tone, reduces fine lines, and gives you a radiant, no-makeup look.</p>
                 </div>
             </div>
         </section>
 
-        <!-- About Us Section -->
-        <section id="about" class="bg-puple-50 p-16 dark:bg-gray-950">
-            <div class="container mx-auto px-4">
-                <h2 class="text-4xl md:text-5xl font-bold text-center mb-8 text-gray-900 dark:text-white"
+        <section id="about" class="bg-purple-50 p-16 dark:bg-gray-950">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 text-gray-900 dark:text-white"
                     id="about-heading">About Us</h2>
                 <div class="flex flex-col md:flex-row items-center gap-12">
                     <div class="w-full md:w-1/2">
-                        <!-- Doctor's Photo and Info -->
-                        <div class="bg-white p-6 rounded-2xl shadow-xl dark:bg-gray-800">
-                            <img src="./doc.jpg" alt="" class="rounded-full shadow-lg mx-auto w-48 h-48 mb-6">
-                            <h3 class="text-2xl font-bold text-center mb-2" id="doctor-name">Mrs. Rachana</h3>
-                            <p class="text-puple-500 font-semibold text-center mb-4" id="doctor-title">
-                                _______________________</p>
+                        <div class="bg-white p-8 rounded-2xl shadow-xl dark:bg-gray-800 mb-8 drop-shadow-xl">
+                            <img src="./1doc.JPG" alt="Mrs. Rachana"
+                                class="rounded-full shadow-lg mx-auto w-48 h-48 mb-6">
+                            <h3 class="text-2xl font-bold text-center mb-2" id="doctor-name-1">Mrs. Rachana</h3>
+                            <p class="text-purple-600 font-semibold text-center mb-4" id="doctor-title-1">Founder &
+                                Head Aesthetician</p>
                             <p class="text-lg text-gray-700 dark:text-gray-300" id="doctor-bio-1">
-                                Dr. Sopheap Sok is a certified aesthetician with over 15 years of experience in the
-                                beauty and wellness industry. Her passion for helping people feel confident and
-                                beautiful led her to found Glow & Charm Station.
+                                A certified aesthetician with over 15 years of experience in the beauty and wellness
+                                industry. Her passion for helping people feel confident and beautiful led her to found
+                                Glow & Charm Station.
                             </p>
                             <p class="text-lg text-gray-700 dark:text-gray-300" id="doctor-bio-2">
                                 She specializes in advanced skincare techniques and personalized treatment plans,
                                 ensuring every client receives the highest level of care.
                             </p>
-
                         </div>
-                        <div class="bg-white p-6 rounded-2xl shadow-xl dark:bg-gray-800">
-                            <img src="./doc.jpg" alt="" class="rounded-full shadow-lg mx-auto w-48 h-48 mb-6">
-                            <h3 class="text-2xl font-bold text-center mb-2" id="doctor-name">Mrs. Rachana</h3>
-                            <p class="text-puple-500 font-semibold text-center mb-4" id="doctor-title">
-                                _______________________</p>
-                            <p class="text-lg text-gray-700 dark:text-gray-300" id="doctor-bio-1">
-                                Dr. Sopheap Sok is a certified aesthetician with over 15 years of experience in the
-                                beauty and wellness industry. Her passion for helping people feel confident and
-                                beautiful led her to found Glow & Charm Station.
+                        <div class="bg-white p-8 rounded-2xl shadow-xl dark:bg-gray-800 drop-shadow-xl">
+                            <img src="./doc.jpg" alt="Mrs. Dalica"
+                                class="rounded-full shadow-lg mx-auto w-48 h-48 mb-6">
+                            <h3 class="text-2xl font-bold text-center mb-2" id="doctor-name-2">Mrs. Dalica</h3>
+                            <p class="text-purple-600 font-semibold text-center mb-4" id="doctor-title-2">Senior
+                                Aesthetician & Skin Specialist</p>
+                            <p class="text-lg text-gray-700 dark:text-gray-300" id="doctor-bio-3">
+                                Mrs. Dalica is a highly-skilled and passionate skin specialist, dedicated to creating
+                                personalized skincare routines for our clients. She focuses on advanced treatments to
+                                combat common skin concerns like acne and hyperpigmentation.
                             </p>
-                            <p class="text-lg text-gray-700 dark:text-gray-300" id="doctor-bio-2">
-                                She specializes in advanced skincare techniques and personalized treatment plans,
-                                ensuring every client receives the highest level of care.
+                            <p class="text-lg text-gray-700 dark:text-gray-300" id="doctor-bio-4">
+                                She believes in a holistic approach to beauty, combining her expertise with a genuine
+                                commitment to helping each client achieve their unique skin goals.
                             </p>
-
                         </div>
                     </div>
                     <div class="w-full md:w-1/2 text-left">
@@ -321,52 +226,35 @@
                             experience the difference.
                         </p>
                     </div>
-                    <div class="w-full md:w-1/2 text-left">
-                        <p class="text-lg text-gray-700 mb-4 dark:text-gray-300" id="about-text-1">
-                            At Glow & Charm Station, our passion is to empower you to look and feel your best. We
-                            believe that true beauty comes from a combination of professional care, premium products,
-                            and a serene, welcoming environment.
-                        </p>
-                        <p class="text-lg text-gray-700 mb-4 dark:text-gray-300" id="about-text-2">
-                            Our team of certified specialists is dedicated to providing personalized treatments that
-                            cater to your unique needs. From the moment you step through our doors, you'll be treated
-                            with the utmost care and professionalism.
-                        </p>
-                        <p class="text-lg text-gray-700 dark:text-gray-300" id="about-text-3">
-                            We're more than just a clinic; we're your partner in wellness and beauty. Come and
-                            experience the difference.
-                        </p>
-                    </div>
-
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="container mx-auto px-4 py-16">
+        <section id="contact" class="container mx-auto px-6 py-20">
             <h2 class="text-4xl md:text-5xl font-bold text-center mb-8 text-gray-900 dark:text-white"
                 id="contact-heading">Book an Appointment</h2>
-            <div class="max-w-xl mx-auto bg-white p-8 rounded-xl shadow-lg dark:bg-gray-800">
+            <div
+                class="max-w-xl mx-auto bg-white bg-opacity-80 p-8 rounded-2xl shadow-xl dark:bg-gray-800 dark:bg-opacity-80 drop-shadow-xl">
                 <form id="booking-form" class="space-y-6">
                     <div>
                         <label for="name" class="block text-gray-700 font-semibold mb-2 dark:text-gray-300"
                             id="label-name">Full Name</label>
                         <input type="text" id="name" name="name"
-                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-puple-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                             required>
                     </div>
                     <div>
                         <label for="phone" class="block text-gray-700 font-semibold mb-2 dark:text-gray-300"
                             id="label-phone">Phone Number</label>
                         <input type="tel" id="phone" name="phone"
-                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-puple-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                             required>
                     </div>
                     <div>
                         <label for="service" class="block text-gray-700 font-semibold mb-2 dark:text-gray-300"
                             id="label-service">Choose a Service</label>
                         <select id="service" name="service"
-                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-puple-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                             required>
                             <option value="" id="option-default">--Please choose a service--</option>
                             <option value="Set A" id="service-1">Set A</option>
@@ -380,37 +268,36 @@
                             <label for="date" class="block text-gray-700 font-semibold mb-2 dark:text-gray-300"
                                 id="label-date">Date</label>
                             <input type="date" id="date" name="date"
-                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-puple-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                                 required>
                         </div>
                         <div class="w-full sm:w-1/2">
                             <label for="time" class="block text-gray-700 font-semibold mb-2 dark:text-gray-300"
                                 id="label-time">Time</label>
                             <input type="time" id="time" name="time"
-                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-puple-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                                 required>
                         </div>
                     </div>
                     <div>
                         <label for="message" class="block text-gray-700 font-semibold mb-2 dark:text-gray-300"
-                            id="label-message">Special Requests
-                            (Optional)</label>
-                        <textarea id="message" name="message" rows="3"
-                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-puple-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"></textarea>
+                            id="label-message">Special Requests (Optional)</label>
+                        <textarea id="message" name="message" rows="4"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 dark:bg-gray-700 dark:border-gray-600 dark:text-white"></textarea>
                     </div>
                     <button type="submit" id="book-button"
-                        class="w-full bg-puple-500 text-white px-6 py-3 rounded-full font-bold hover:bg-puple-600 transition duration-300 shadow-lg">Book
+                        class="w-full bg-purple-600 text-white px-6 py-3 rounded-full font-bold hover:bg-purple-700 transition duration-300 shadow-lg drop-shadow-md">Book
                         Appointment</button>
                 </form>
             </div>
         </section>
 
-        <!-- NEW: Booking Confirmation Page -->
-        <section id="booking-confirmation-page" class="hidden container mx-auto px-4 py-16 text-center">
-            <div class="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-lg dark:bg-gray-800">
-                <div class="flex flex-col items-center justify-center mb-6">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-green-500 mb-4" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <section id="booking-confirmation-page" class="hidden container mx-auto px-6 py-20 text-center">
+            <div
+                class="max-w-xl mx-auto bg-white bg-opacity-80 p-8 rounded-2xl shadow-xl dark:bg-gray-800 dark:bg-opacity-80 drop-shadow-xl">
+                <div class="flex flex-col items-center justify-center mb-8">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-purple-600 mb-4 drop-shadow-md"
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
@@ -422,264 +309,65 @@
                 <div class="text-left bg-gray-100 p-6 rounded-lg dark:bg-gray-700">
                     <h3 class="text-2xl font-semibold mb-4" id="details-heading">Your Booking Details:</h3>
                     <ul class="space-y-2 text-gray-800 dark:text-gray-200">
-                        <li><strong class="text-gray-900 dark:text-white" id="details-name-label">Name:</strong> <span
-                                id="details-name"></span></li>
+                        <li><strong class="text-gray-900 dark:text-white" id="details-name-label">Name:</strong>
+                            <span id="details-name"></span>
+                        </li>
                         <li><strong class="text-gray-900 dark:text-white" id="details-service-label">Service:</strong>
                             <span id="details-service"></span>
                         </li>
-                        <li><strong class="text-gray-900 dark:text-white" id="details-date-label">Date:</strong> <span
-                                id="details-date"></span></li>
-                        <li><strong class="text-gray-900 dark:text-white" id="details-time-label">Time:</strong> <span
-                                id="details-time"></span></li>
+                        <li><strong class="text-gray-900 dark:text-white" id="details-date-label">Date:</strong>
+                            <span id="details-date"></span>
+                        </li>
+                        <li><strong class="text-gray-900 dark:text-white" id="details-time-label">Time:</strong>
+                            <span id="details-time"></span>
+                        </li>
                     </ul>
                 </div>
                 <button onclick="location.reload()"
-                    class="mt-8 bg-puple-500 text-white px-6 py-3 rounded-full font-bold hover:bg-puple-600 transition duration-300 shadow-lg"
+                    class="mt-8 bg-purple-600 text-white px-8 py-3 rounded-full font-bold hover:bg-purple-700 transition duration-300 shadow-lg drop-shadow-md"
                     id="book-again-button">Book Another Appointment</button>
+            </div>
+        </section>
+        <!-- Contact Section with Social Links -->
+        <section id="contact" class="py-16 bg-gray-100 dark:bg-gray-800">
+            <div class="container mx-auto px-6 md:px-12 lg:px-20 text-center">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">Contact Us</h2>
+                <p class="mb-6 text-gray-700 dark:text-gray-300">
+                    Connect with us on social media or send us a message!
+                </p>
+
+                <!-- Social Media Links -->
+                <div class="flex justify-center space-x-6 text-3xl">
+                    <a href="https://www.facebook.com/share/1B3t4nUPKL/?mibextid=wwXIfr" target="_blank"
+                        class="text-blue-600 hover:text-blue-800">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://t.me/+855967797222" target="_blank" class="text-blue-400 hover:text-blue-600">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@glowcharmstation313?_t=ZS-8yjyz46kTvF&_r=1" target="_blank"
+                        class="text-black dark:text-white hover:text-gray-500">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="https://www.google.com/maps/place/YourBusinessName" target="_blank"
+                        class="text-red-500 hover:text-red-700">
+                        <i class="fab fa-google"></i>
+                    </a>
+                </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
+
     <footer class="bg-gray-800 text-gray-300 py-8 dark:bg-gray-900 dark:text-gray-400">
-        <div class="container mx-auto px-4 text-center">
+        <div class="container mx-auto px-6 text-center">
             <p id="footer-text">&copy; 2026 Glow & Charm Station. All rights reserved.</p>
         </div>
     </footer>
-
-    <!-- Link to our custom JavaScript file -->
-    <script>
-        // This object contains all the text translations for both English (en) and Khmer (km)
-        const translations = {
-            'en': {
-                'page-title': 'Glow & Charm Station',
-                'site-title': 'Glow & Charm Station',
-                'nav-services': 'Services',
-                'nav-about': 'About Us',
-                'nav-book': 'Book a Visit',
-                'nav-services-mobile': 'Services',
-                'nav-about-mobile': 'About Us',
-                'nav-book-mobile': 'Book a Visit',
-                'hero-heading': 'Discover Your Radiance',
-                'hero-subheading': 'Your journey to beauty and wellness begins here. We\'re dedicated to helping you feel your best, inside and out.',
-                'hero-cta': 'Book an Appointment',
-                'services-heading': 'Our Services',
-                'service-title-1': 'Set A',
-                'service-desc-1': 'Customized treatments designed to rejuvenate, cleanse, and nourish your skin, leaving you with a healthy, vibrant glow.',
-                'service-title-2': 'Set B',
-                'service-desc-2': 'Indulge in a range of relaxing massages and body treatments that melt away stress and revitalize your spirit.',
-                'service-title-3': 'Set VIP (Meso)',
-                'service-desc-3': 'Experience professional and gentle hair removal services for smooth, flawless skin with lasting results.',
-                'about-heading': 'About Us',
-                'doctor-name': 'Mrs. Rachana',
-                'doctor-title': '_________________',
-                'doctor-bio-1': 'Mrs. Rachana is a certified aesthetician with over 15 years of experience in the beauty and wellness industry. Her passion for helping people feel confident and beautiful led her to found Glow & Charm Station.',
-                'doctor-bio-2': 'She specializes in advanced skincare techniques and personalized treatment plans, ensuring every client receives the highest level of care.',
-                'about-text-1': 'At Glow & Charm Station, our passion is to empower you to look and feel your best. We believe that true beauty comes from a combination of professional care, premium products, and a serene, welcoming environment.',
-                'about-text-2': 'Our team of certified specialists is dedicated to providing personalized treatments that cater to your unique needs. From the moment you step through our doors, you\'ll be treated with the utmost care and professionalism.',
-                'about-text-3': 'We\'re more than just a clinic; we\'re your partner in wellness and beauty. Come and experience the difference.',
-                'contact-heading': 'Book an Appointment',
-                'label-name': 'Full Name',
-                'label-phone': 'Phone Number',
-                'label-service': 'Choose a Service',
-                'option-default': '--Please choose a service--',
-                'service-1': 'Set A',
-                'service-2': 'Set B',
-                'service-3': 'Set VIP (Meso)',
-                'label-date': 'Date',
-                'label-time': 'Time',
-                'label-message': 'Special Requests (Optional)',
-                'book-button': 'Book Appointment',
-                'confirmation-heading': 'Booking Confirmed!',
-                'confirmation-subheading': 'Thank you for booking with us. We look forward to seeing you.',
-                'details-heading': 'Your Booking Details:',
-                'details-name-label': 'Name:',
-                'details-service-label': 'Service:',
-                'details-date-label': 'Date:',
-                'details-time-label': 'Time:',
-                'book-again-button': 'Book Another Appointment',
-                'footer-text': '&copy; 2026 Glow & Charm Station. All rights reserved.',
-                'error-message-config': 'Please configure your Telegram bot token and chat ID in the code.',
-                'error-message-telegram': 'Failed to send booking. Please check your bot token and chat ID.',
-                'error-message-generic': 'An error occurred. Please try again later.'
-            },
-            'km': {
-                'page-title': 'Glow & Charm Station',
-                'site-title': 'Glow & Charm Station',
-                'nav-services': 'សេវាកម្ម',
-                'nav-about': 'អំពីយើង',
-                'nav-book': 'កក់ការណាត់ជួប',
-                'nav-services-mobile': 'សេវាកម្ម',
-                'nav-about-mobile': 'អំពីយើង',
-                'nav-book-mobile': 'កក់ការណាត់ជួប',
-                'hero-heading': 'ស្វែងរកភាពភ្លឺថ្លារបស់អ្នក',
-                'hero-subheading': 'ដំណើរឆ្ពោះទៅរកភាពស្រស់ស្អាត និងសុខភាពរបស់អ្នកចាប់ផ្តើមនៅទីនេះ។ យើងប្តេជ្ញាជួយអ្នកឱ្យមានអារម្មណ៍ល្អបំផុតទាំងខាងក្នុង និងខាងក្រៅ។',
-                'hero-cta': 'កក់ការណាត់ជួប',
-                'services-heading': 'សេវាកម្មរបស់យើង',
-                'service-title-1': 'Set A',
-                'service-desc-1': 'ការព្យាបាលតាមតម្រូវការដែលរចនាឡើងដើម្បីធ្វើឱ្យស្បែករបស់អ្នកមានភាពស្រស់ថ្លា សម្អាត និងបំប៉ន ទុកឱ្យអ្នកមានភាពភ្លឺថ្លា និងមានសុខភាពល្អ។',
-                'service-title-2': 'Set B ',
-                'service-desc-2': 'រីករាយនឹងការម៉ាស្សាបន្ធូរអារម្មណ៍ និងការព្យាបាលរាងកាយជាច្រើនប្រភេទដែលបំបាត់ភាពតានតឹង និងធ្វើឱ្យស្មារតីរបស់អ្នករស់ឡើងវិញ។',
-                'service-title-3': 'Set VIP (BB Meso)',
-                'service-desc-3': 'ទទួលយកបទពិសោធន៍សេវាកម្មកម្ចាត់រោមប្រកបដោយវិជ្ជាជីវៈ និងទន់ភ្លន់សម្រាប់ស្បែករលោងឥតខ្ចោះជាមួយនឹងលទ្ធផលយូរអង្វែង។',
-                'about-heading': 'អំពីយើង',
-                'doctor-name': 'អ្នកគ្រូពេទ្យ រាចនា',
-                'doctor-title': 'ស្ថាបនិក និងអ្នកជំនាញផ្នែកថែរក្សាសម្រស់',
-                'doctor-bio-1': 'អ្នកគ្រូពេទ្យ សុភាព សុខ ជាអ្នកថែរក្សាសម្រស់ដែលមានការទទួលស្គាល់ និងមានបទពិសោធន៍ជាង ១៥ ឆ្នាំក្នុងឧស្សាហកម្មសម្រស់ និងសុខភាព។ ចំណង់ចំណូលចិត្តរបស់គាត់ក្នុងការជួយមនុស្សឱ្យមានទំនុកចិត្ត និងស្រស់ស្អាតបានដឹកនាំគាត់ឱ្យបង្កើតស្ថានីយ៍ Glow & Charm ។',
-                'doctor-bio-2': 'គាត់មានជំនាញក្នុងការប្រើប្រាស់បច្ចេកទេសថែរក្សាស្បែកទំនើប និងផែនការព្យាបាលផ្ទាល់ខ្លួន ដោយធានាថាអតិថិជនគ្រប់រូបទទួលបានការថែទាំកម្រិតខ្ពស់បំផុត។',
-                'about-text-1': 'នៅស្ថានីយ៍ Glow & Charm ចំណង់ចំណូលចិត្តរបស់យើងគឺដើម្បីផ្តល់អំណាចឱ្យអ្នកមើលទៅ និងមានអារម្មណ៍ល្អបំផុត។ យើងជឿជាក់ថាភាពស្រស់ស្អាតពិតប្រាកដបានមកពីការរួមបញ្ចូលគ្នានៃការថែទាំប្រកបដោយវិជ្ជាជីវៈ ផលិតផលល្អបំផុត និងបរិយាកាសស្ងប់ស្ងាត់ និងស្វាគមន៍។',
-                'about-text-2': 'ក្រុមអ្នកឯកទេសដែលមានវិញ្ញាបនបត្ររបស់យើងត្រូវបានឧទ្ទិសដល់ការផ្តល់ការព្យាបាលផ្ទាល់ខ្លួនដែលបំពេញតាមតម្រូវការពិសេសរបស់អ្នក។ ចាប់ពីពេលដែលអ្នកបោះជំហានចូលទ្វាររបស់យើង អ្នកនឹងត្រូវបានព្យាបាលដោយការយកចិត្តទុកដាក់ និងវិជ្ជាជីវៈខ្ពស់បំផុត។',
-                'about-text-3': 'យើងលើសពីគ្លីនិកមួយ។ យើងជាដៃគូរបស់អ្នកក្នុងសុខភាព និងសម្រស់។ សូមអញ្ជើញមក និងទទួលយកភាពខុសប្លែកគ្នា។',
-                'contact-heading': 'កក់ការណាត់ជួប',
-                'label-name': 'ឈ្មោះពេញ',
-                'label-phone': 'លេខទូរស័ព្ទ',
-                'label-service': 'ជ្រើសរើសសេវាកម្ម',
-                'option-default': '--សូមជ្រើសរើសសេវាកម្ម--',
-                'service-1': 'Set A',
-                'service-2': 'Set B',
-                'service-3': 'Set VIP (Meso)',
-                'label-date': 'កាលបរិច្ឆេទ',
-                'label-time': 'ម៉ោង',
-                'label-message': 'សំណើពិសេស (ស្រេចចិត្ត)',
-                'book-button': 'កក់ការណាត់ជួប',
-                'confirmation-heading': 'ការកក់ត្រូវបានបញ្ជាក់!',
-                'confirmation-subheading': 'សូមអរគុណសម្រាប់ការកក់ជាមួយយើង។ យើងទន្ទឹងរង់ចាំជួបអ្នក។',
-                'details-heading': 'ព័ត៌មានលម្អិតនៃការកក់របស់អ្នក៖',
-                'details-name-label': 'ឈ្មោះ៖',
-                'details-service-label': 'សេវាកម្ម៖',
-                'details-date-label': 'កាលបរិច្ឆេទ៖',
-                'details-time-label': 'ម៉ោង៖',
-                'book-again-button': 'កក់ការណាត់ជួបមួយផ្សេងទៀត',
-                'footer-text': '© 2026 Glow & Charm Station. រក្សាសិទ្ធិគ្រប់យ៉ាង។',
-                'error-message-config': 'សូមកំណត់រចនាសម្ព័ន្ធបូត Telegram និងលេខសម្គាល់ជជែករបស់អ្នកនៅក្នុងកូដ។',
-                'error-message-telegram': 'មិនអាចផ្ញើការកក់បានទេ។ សូមពិនិត្យមើលបូត និងលេខសម្គាល់ជជែករបស់អ្នក។',
-                'error-message-generic': 'មានកំហុសមួយបានកើតឡើង។ សូមព្យាយាមម្តងទៀតនៅពេលក្រោយ។'
-            }
-        };
-
-        /**
-         * Sets the website's language and updates all translatable elements.
-         * @param {string} lang The language code ('en' or 'km').
-         */
-        function setLanguage(lang) {
-            document.documentElement.lang = lang;
-            document.body.classList.toggle('khmer-font', lang === 'km');
-            localStorage.setItem('lang', lang);
-
-            Object.keys(translations[lang]).forEach(key => {
-                const element = document.getElementById(key);
-                if (element) {
-                    // Special handling for different element types
-                    if (element.tagName === 'INPUT' && element.type === 'date') {
-                        // For date input, we don't want to change the value, just the label
-                        // and it doesn't have innerHTML or textContent
-                        // So we do nothing here, the label is handled separately
-                    } else if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA' || element.tagName === 'SELECT') {
-                        // For form inputs, we don't want to change the value
-                        // The labels are handled below
-                    } else if (element.tagName === 'OPTION') {
-                        element.textContent = translations[lang][key];
-                    } else {
-                        element.innerHTML = translations[lang][key];
-                    }
-                }
-            });
-        }
-
-        /**
-         * Hides the booking form and displays the confirmation page with the booking details.
-         * @param {string} name The customer's name.
-         * @param {string} service The selected service.
-         * @param {string} date The booking date.
-         * @param {string} time The booking time.
-         */
-        function showConfirmationPage(name, service, date, time) {
-            // Hide the main contact section with the form
-            document.getElementById('contact').classList.add('hidden');
-            // Show the booking confirmation page
-            document.getElementById('booking-confirmation-page').classList.remove('hidden');
-
-            // Populate the details on the confirmation page
-            document.getElementById('details-name').textContent = name;
-            document.getElementById('details-service').textContent = service;
-            document.getElementById('details-date').textContent = date;
-            document.getElementById('details-time').textContent = time;
-
-            // Scroll to the confirmation page
-            window.scrollTo({ top: document.getElementById('booking-confirmation-page').offsetTop, behavior: 'smooth' });
-        }
-
-
-        /**
-         * Attaches all the necessary event listeners to the page elements.
-         */
-        function attachEventListeners() {
-            // --- Dark Mode Toggle ---
-            const themeToggleBtn = document.getElementById('theme-toggle');
-            if (themeToggleBtn) {
-                themeToggleBtn.addEventListener('click', () => {
-                    const isDarkMode = document.documentElement.classList.toggle('dark');
-                    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
-                    themeToggleBtn.setAttribute('aria-pressed', isDarkMode);
-                });
-            }
-
-            // --- Language Switchers ---
-            document.getElementById('lang-en').addEventListener('click', () => setLanguage('en'));
-            document.getElementById('lang-km').addEventListener('click', () => setLanguage('km'));
-
-            // --- Mobile Menu Toggle ---
-            const mobileMenuBtn = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            if (mobileMenuBtn && mobileMenu) {
-                mobileMenuBtn.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('hidden');
-                });
-            }
-
-            // --- Booking Form Submission ---
-            const bookingForm = document.getElementById('booking-form');
-            if (bookingForm) {
-                bookingForm.addEventListener('submit', function (e) {
-                    e.preventDefault(); // Prevent default form submission
-
-                    const name = document.getElementById('name').value;
-                    const phone = document.getElementById('phone').value;
-                    const service = document.getElementById('service').value;
-                    const date = document.getElementById('date').value;
-                    const time = document.getElementById('time').value;
-                    const message = document.getElementById('message').value;
-
-                    // Display confirmation page with the booking details
-                    showConfirmationPage(name, service, date, time);
-
-                    // Optional: You could log the data to the console for debugging
-                    console.log('Booking submitted:', { name, phone, service, date, time, message });
-
-                    // Reset the form after showing the confirmation
-                    bookingForm.reset();
-                });
-            }
-        }
-
-        // --- Initial setup on page load ---
-        document.addEventListener('DOMContentLoaded', () => {
-            // Check for and apply saved theme preference
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'dark' || (savedTheme === null && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                document.documentElement.classList.add('dark');
-                document.getElementById('theme-toggle').setAttribute('aria-pressed', true);
-            }
-
-            // Check for and apply saved language preference, default to Khmer (km)
-            const savedLang = localStorage.getItem('lang') || 'km';
-            setLanguage(savedLang);
-
-            // Attach all event listeners
-            attachEventListeners();
-        });
-
-    </script>
+    <div id="message-box"
+        class="fixed top-4 left-1/2 -translate-x-1/2 p-4 rounded-lg text-white shadow-lg transition-all duration-300 hidden z-[999]">
+    </div>
+    <script src="/script.js"></script>
 </body>
 
 </html>
