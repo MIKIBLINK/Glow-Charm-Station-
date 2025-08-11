@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Preahvihear&display=swap');
 
 body {
-    font-family: 'Playfair Display', serif, "Preahvihear";
+    font-family: 'Preahvihear', serif, "Playfair Display";
     transition: background-color 0.3s, color 0.3s;
 }
 
