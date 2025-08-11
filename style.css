@@ -2,12 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Preahvihear&display=swap');
 
 body {
-    font-family: 'Preahvihear', serif, "Playfair Display";
+    font-family: 'Playfair Display', serif, "Preahvihear";
     transition: background-color 0.3s, color 0.3s;
 }
 
 .khmer-font {
-    font-family: 'Preahvihear', serif, "Playfair Display";
+    font-family: 'Playfair Display', serif, "Preahvihear;
 }
 
 .bg-overlay {
