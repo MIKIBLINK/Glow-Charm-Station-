@@ -1,60 +1,804 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Preahvihear&display=swap');
+/* =========================================================
+   iOS 27 INSPIRED DESIGN
+   Complete style.css
+   GitHub Pages compatible
+========================================================= */
+
+/* =========================================================
+   GOOGLE FONTS
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Preahvihear&display=swap');
+
+
+/* =========================================================
+   ROOT VARIABLES
+========================================================= */
+
+:root {
+    --bg: #f5f5f7;
+    --bg-secondary: #ffffff;
+
+    --text: #1d1d1f;
+    --text-secondary: #6e6e73;
+
+    --blue: #007aff;
+    --blue-hover: #006ee6;
+
+    --glass: rgba(255, 255, 255, 0.68);
+    --glass-strong: rgba(255, 255, 255, 0.82);
+
+    --border: rgba(255, 255, 255, 0.55);
+    --border-soft: rgba(0, 0, 0, 0.08);
+
+    --shadow:
+        0 8px 30px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.7);
+
+    --shadow-hover:
+        0 15px 40px rgba(0, 0, 0, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+
+    --radius-small: 14px;
+    --radius-medium: 20px;
+    --radius-large: 28px;
+
+    --blur: blur(25px) saturate(180%);
+
+    --transition:
+        background-color 0.35s ease,
+        color 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease,
+        opacity 0.3s ease,
+        transform 0.25s ease;
+}
+
+
+/* =========================================================
+   GLOBAL RESET
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
 
 body {
-    font-family: 'Playfair Display', serif, "";
-    transition: background-color 0.3s, color 0.3s;
+    min-height: 100vh;
+
+    font-family: 'Playfair Display', serif;
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(0, 122, 255, 0.08),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 90%,
+            rgba(120, 80, 255, 0.08),
+            transparent 30%
+        ),
+        var(--bg);
+
+    color: var(--text);
+
+    transition: var(--transition);
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
+
+
+/* =========================================================
+   KHMER FONT
+========================================================= */
 
 .khmer-font {
-    font-family: 'Playfair Display', serif, ";
+    font-family: 'Preahvihear', sans-serif;
 }
+
+
+/* =========================================================
+   LINKS
+========================================================= */
+
+a {
+    color: var(--blue);
+    text-decoration: none;
+
+    transition:
+        color 0.25s ease,
+        opacity 0.25s ease;
+}
+
+a:hover {
+    color: var(--blue-hover);
+}
+
+
+/* =========================================================
+   HEADINGS
+========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--text);
+    font-weight: 700;
+
+    transition: color 0.3s ease;
+}
+
+
+/* =========================================================
+   PARAGRAPH
+========================================================= */
+
+p {
+    color: var(--text-secondary);
+
+    line-height: 1.7;
+
+    transition: color 0.3s ease;
+}
+
+
+/* =========================================================
+   iOS GLASS COMPONENT
+========================================================= */
+
+.glass {
+    background: var(--glass);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-large);
+
+    box-shadow: var(--shadow);
+
+    backdrop-filter: var(--blur);
+    -webkit-backdrop-filter: var(--blur);
+
+    transition: var(--transition);
+}
+
+.glass:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+
+/* =========================================================
+   STRONG GLASS
+========================================================= */
+
+.glass-strong {
+    background: var(--glass-strong);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-large);
+
+    box-shadow: var(--shadow);
+
+    backdrop-filter: var(--blur);
+    -webkit-backdrop-filter: var(--blur);
+
+    transition: var(--transition);
+}
+
+
+/* =========================================================
+   BACKGROUND OVERLAY
+========================================================= */
 
 .bg-overlay {
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
+    position: relative;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.12),
+            rgba(0, 0, 0, 0.45)
+        );
 }
 
-#theme-toggle {
-    color: #175fc4;
+
+/* =========================================================
+   HEADER / NAVBAR
+========================================================= */
+
+header,
+nav {
+    background: var(--glass);
+
+    border-bottom: 1px solid var(--border);
+
+    backdrop-filter: var(--blur);
+    -webkit-backdrop-filter: var(--blur);
+
+    transition: var(--transition);
+}
+
+
+/* =========================================================
+   IOS CARD
+========================================================= */
+
+.card {
+    background: var(--glass);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-large);
+
+    padding: 24px;
+
+    box-shadow: var(--shadow);
+
+    backdrop-filter: var(--blur);
+    -webkit-backdrop-filter: var(--blur);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background-color 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+
+    box-shadow: var(--shadow-hover);
+}
+
+
+/* =========================================================
+   BUTTON BASE
+========================================================= */
+
+button {
+    font-family: inherit;
+
+    border: none;
+    outline: none;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        background-color 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+button:active {
+    transform: scale(0.94);
+}
+
+
+/* =========================================================
+   IOS BLUE BUTTON
+========================================================= */
+
+.btn,
+.btn-primary {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 12px 20px;
+
+    border-radius: 16px;
+
+    background: var(--blue);
+
+    color: #ffffff;
+
     font-weight: 600;
-    transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    box-shadow:
+        0 5px 15px rgba(0, 122, 255, 0.25);
+
+    transition: var(--transition);
+}
+
+.btn:hover,
+.btn-primary:hover {
+    background: var(--blue-hover);
+
+    color: #ffffff;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 22px rgba(0, 122, 255, 0.3);
+}
+
+
+/* =========================================================
+   GLASS BUTTON
+========================================================= */
+
+.btn-glass {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 12px 20px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    background: var(--glass);
+
+    color: var(--text);
+
+    backdrop-filter: var(--blur);
+    -webkit-backdrop-filter: var(--blur);
+
+    box-shadow: var(--shadow);
+
+    transition: var(--transition);
+}
+
+.btn-glass:hover {
+    transform: translateY(-2px);
+
+    box-shadow: var(--shadow-hover);
+
+    color: var(--blue);
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+input,
+textarea,
+select {
+    width: 100%;
+
+    padding: 13px 16px;
+
+    border: 1px solid var(--border-soft);
+
+    border-radius: 16px;
+
+    outline: none;
+
+    background: var(--glass-strong);
+
+    color: var(--text);
+
+    font-family: inherit;
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--text-secondary);
+
+    opacity: 0.7;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--blue);
+
+    box-shadow:
+        0 0 0 4px rgba(0, 122, 255, 0.12);
+}
+
+
+/* =========================================================
+   THEME TOGGLE
+========================================================= */
+
+#theme-toggle {
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 46px;
+    height: 46px;
+
+    padding: 0;
+
+    border: 1px solid var(--border);
+
+    border-radius: 50%;
+
+    background: var(--glass);
+
+    color: var(--blue);
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+
+    box-shadow: var(--shadow);
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.25s ease,
+        box-shadow 0.3s ease;
 }
 
 #theme-toggle:hover {
-    color: #48b8ec;
+    color: var(--blue-hover);
+
+    transform: scale(1.06);
+
+    box-shadow: var(--shadow-hover);
 }
 
-@media (prefers-color-scheme: dark) {
-    #theme-toggle {
-        color: #3460ac;
-    }
+#theme-toggle:active {
+    transform: scale(0.9);
 }
+
+
+/* =========================================================
+   THEME TOGGLE ICONS
+========================================================= */
 
 #theme-toggle svg {
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: absolute;
-    position-anchor: center;
-    position: relative;
-    transform: translate(-50%, -50%);
+
+    width: 20px;
+    height: 20px;
+
+    pointer-events: none;
+
+    transition:
+        transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.25s ease;
+}
+
+
+/* Light mode */
+
+#theme-toggle[aria-pressed="false"] .sun-icon {
+    transform: scale(1) rotate(0deg);
+
+    opacity: 1;
 }
 
 #theme-toggle[aria-pressed="false"] .moon-icon {
-    transform: scale(0);
-    top: fit-content;
-    left: auto;
+    transform: scale(0) rotate(-90deg);
+
+    opacity: 0;
 }
 
+
+/* Dark mode */
+
 #theme-toggle[aria-pressed="true"] .sun-icon {
-    transform: scale(0);
+    transform: scale(0) rotate(90deg);
+
+    opacity: 0;
 }
 
 #theme-toggle[aria-pressed="true"] .moon-icon {
-    transform: scale(1);
-    top: fit-content;
-    left: auto;
+    transform: scale(1) rotate(0deg);
+
+    opacity: 1;
 }
 
-#theme-toggle[aria-pressed="false"] .sun-icon {
-    transform: scale(1);
+
+/* =========================================================
+   IMAGES
+========================================================= */
+
+img {
+    max-width: 100%;
+    height: auto;
+
+    border-radius: var(--radius-medium);
+
+    display: block;
 }
 
+
+/* =========================================================
+   IOS STYLE AVATAR
+========================================================= */
+
+.avatar {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    border: 2px solid rgba(255, 255, 255, 0.7);
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================================================
+   BADGE
+========================================================= */
+
+.badge {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 6px 12px;
+
+    border-radius: 999px;
+
+    background: rgba(0, 122, 255, 0.1);
+
+    color: var(--blue);
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+hr {
+    border: 0;
+
+    height: 1px;
+
+    margin: 20px 0;
+
+    background: var(--border-soft);
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(120, 120, 128, 0.35);
+
+    border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(120, 120, 128, 0.55);
+}
+
+
+/* =========================================================
+   SELECTION
+========================================================= */
+
+::selection {
+    background: rgba(0, 122, 255, 0.2);
+
+    color: var(--text);
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+@media (prefers-color-scheme: dark) {
+
+    :root {
+        --bg: #000000;
+
+        --bg-secondary: #1c1c1e;
+
+        --text: #f5f5f7;
+
+        --text-secondary: #98989d;
+
+        --blue: #0a84ff;
+
+        --blue-hover: #409cff;
+
+        --glass: rgba(28, 28, 30, 0.68);
+
+        --glass-strong: rgba(44, 44, 46, 0.82);
+
+        --border: rgba(255, 255, 255, 0.12);
+
+        --border-soft: rgba(255, 255, 255, 0.1);
+
+        --shadow:
+            0 8px 30px rgba(0, 0, 0, 0.35),
+            inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+        --shadow-hover:
+            0 15px 40px rgba(0, 0, 0, 0.5),
+            inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+}
+
+
+/* =========================================================
+   MANUAL DARK THEME
+========================================================= */
+
+[data-theme="dark"] {
+
+    --bg: #000000;
+
+    --bg-secondary: #1c1c1e;
+
+    --text: #f5f5f7;
+
+    --text-secondary: #98989d;
+
+    --blue: #0a84ff;
+
+    --blue-hover: #409cff;
+
+    --glass: rgba(28, 28, 30, 0.68);
+
+    --glass-strong: rgba(44, 44, 46, 0.82);
+
+    --border: rgba(255, 255, 255, 0.12);
+
+    --border-soft: rgba(255, 255, 255, 0.1);
+
+    --shadow:
+        0 8px 30px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+    --shadow-hover:
+        0 15px 40px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+
+/* =========================================================
+   MANUAL LIGHT THEME
+========================================================= */
+
+[data-theme="light"] {
+
+    --bg: #f5f5f7;
+
+    --bg-secondary: #ffffff;
+
+    --text: #1d1d1f;
+
+    --text-secondary: #6e6e73;
+
+    --blue: #007aff;
+
+    --blue-hover: #006ee6;
+
+    --glass: rgba(255, 255, 255, 0.68);
+
+    --glass-strong: rgba(255, 255, 255, 0.82);
+
+    --border: rgba(255, 255, 255, 0.55);
+
+    --border-soft: rgba(0, 0, 0, 0.08);
+
+    --shadow:
+        0 8px 30px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.7);
+
+    --shadow-hover:
+        0 15px 40px rgba(0, 0, 0, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+
+/* =========================================================
+   RESPONSIVE DESIGN
+========================================================= */
+
+@media (max-width: 768px) {
+
+    body {
+        font-size: 15px;
+    }
+
+    .card,
+    .glass,
+    .glass-strong {
+        border-radius: 22px;
+    }
+
+    .card {
+        padding: 18px;
+    }
+
+    #theme-toggle {
+        width: 42px;
+        height: 42px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    body {
+        font-size: 14px;
+    }
+
+    .card {
+        padding: 16px;
+
+        border-radius: 20px;
+    }
+
+    .btn,
+    .btn-primary,
+    .btn-glass {
+        padding: 10px 16px;
+
+        border-radius: 14px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+
+        transition-duration: 0.01ms !important;
+
+        animation-duration: 0.01ms !important;
+    }
+}
