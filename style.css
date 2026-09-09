@@ -1,7 +1,7 @@
 /* =========================================================
-   iOS 27 INSPIRED DESIGN
-   Complete style.css
-   GitHub Pages compatible
+   STYLE.CSS
+   iOS 27 Inspired UI
+   GitHub Pages Compatible
 ========================================================= */
 
 /* =========================================================
@@ -12,31 +12,31 @@
 
 
 /* =========================================================
-   ROOT VARIABLES
+   ROOT
 ========================================================= */
 
 :root {
-    --bg: #f5f5f7;
-    --bg-secondary: #ffffff;
+    --background: #f5f5f7;
+    --background-secondary: #ffffff;
 
     --text: #1d1d1f;
     --text-secondary: #6e6e73;
 
-    --blue: #007aff;
-    --blue-hover: #006ee6;
+    --primary: #007aff;
+    --primary-hover: #006ee6;
 
-    --glass: rgba(255, 255, 255, 0.68);
-    --glass-strong: rgba(255, 255, 255, 0.82);
+    --glass: rgba(255, 255, 255, 0.62);
+    --glass-light: rgba(255, 255, 255, 0.78);
 
     --border: rgba(255, 255, 255, 0.55);
-    --border-soft: rgba(0, 0, 0, 0.08);
+    --border-dark: rgba(0, 0, 0, 0.08);
 
     --shadow:
         0 8px 30px rgba(0, 0, 0, 0.08),
         inset 0 1px 0 rgba(255, 255, 255, 0.7);
 
     --shadow-hover:
-        0 15px 40px rgba(0, 0, 0, 0.12),
+        0 16px 45px rgba(0, 0, 0, 0.12),
         inset 0 1px 0 rgba(255, 255, 255, 0.8);
 
     --radius-small: 14px;
@@ -45,24 +45,18 @@
 
     --blur: blur(25px) saturate(180%);
 
-    --transition:
-        background-color 0.35s ease,
-        color 0.35s ease,
-        border-color 0.35s ease,
-        box-shadow 0.35s ease,
-        opacity 0.3s ease,
-        transform 0.25s ease;
+    --ease: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 
 /* =========================================================
-   GLOBAL RESET
+   RESET
 ========================================================= */
 
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 html {
@@ -85,14 +79,16 @@ body {
             rgba(120, 80, 255, 0.08),
             transparent 30%
         ),
-        var(--bg);
+        var(--background);
 
     color: var(--text);
 
-    transition: var(--transition);
-
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    transition:
+        background-color 0.35s ease,
+        color 0.35s ease;
 }
 
 
@@ -106,25 +102,7 @@ body {
 
 
 /* =========================================================
-   LINKS
-========================================================= */
-
-a {
-    color: var(--blue);
-    text-decoration: none;
-
-    transition:
-        color 0.25s ease,
-        opacity 0.25s ease;
-}
-
-a:hover {
-    color: var(--blue-hover);
-}
-
-
-/* =========================================================
-   HEADINGS
+   TEXT
 ========================================================= */
 
 h1,
@@ -134,15 +112,9 @@ h4,
 h5,
 h6 {
     color: var(--text);
-    font-weight: 700;
 
     transition: color 0.3s ease;
 }
-
-
-/* =========================================================
-   PARAGRAPH
-========================================================= */
 
 p {
     color: var(--text-secondary);
@@ -154,7 +126,26 @@ p {
 
 
 /* =========================================================
-   iOS GLASS COMPONENT
+   LINKS
+========================================================= */
+
+a {
+    color: var(--primary);
+
+    text-decoration: none;
+
+    transition:
+        color 0.25s ease,
+        opacity 0.25s ease;
+}
+
+a:hover {
+    color: var(--primary-hover);
+}
+
+
+/* =========================================================
+   IOS GLASS
 ========================================================= */
 
 .glass {
@@ -169,10 +160,16 @@ p {
     backdrop-filter: var(--blur);
     -webkit-backdrop-filter: var(--blur);
 
-    transition: var(--transition);
+    transition:
+        transform 0.3s var(--ease),
+        background-color 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
 }
 
 .glass:hover {
+    transform: translateY(-3px);
+
     box-shadow: var(--shadow-hover);
 }
 
@@ -182,7 +179,7 @@ p {
 ========================================================= */
 
 .glass-strong {
-    background: var(--glass-strong);
+    background: var(--glass-light);
 
     border: 1px solid var(--border);
 
@@ -192,41 +189,6 @@ p {
 
     backdrop-filter: var(--blur);
     -webkit-backdrop-filter: var(--blur);
-
-    transition: var(--transition);
-}
-
-
-/* =========================================================
-   BACKGROUND OVERLAY
-========================================================= */
-
-.bg-overlay {
-    position: relative;
-
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 0.12),
-            rgba(0, 0, 0, 0.45)
-        );
-}
-
-
-/* =========================================================
-   HEADER / NAVBAR
-========================================================= */
-
-header,
-nav {
-    background: var(--glass);
-
-    border-bottom: 1px solid var(--border);
-
-    backdrop-filter: var(--blur);
-    -webkit-backdrop-filter: var(--blur);
-
-    transition: var(--transition);
 }
 
 
@@ -249,7 +211,7 @@ nav {
     -webkit-backdrop-filter: var(--blur);
 
     transition:
-        transform 0.3s ease,
+        transform 0.3s var(--ease),
         box-shadow 0.3s ease,
         background-color 0.3s ease;
 }
@@ -262,19 +224,52 @@ nav {
 
 
 /* =========================================================
-   BUTTON BASE
+   BACKGROUND OVERLAY
+========================================================= */
+
+.bg-overlay {
+    background-image:
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.2),
+            rgba(0, 0, 0, 0.55)
+        );
+}
+
+
+/* =========================================================
+   NAVIGATION / HEADER
+========================================================= */
+
+header,
+nav {
+    background: var(--glass);
+
+    border-bottom: 1px solid var(--border);
+
+    backdrop-filter: var(--blur);
+    -webkit-backdrop-filter: var(--blur);
+
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+/* =========================================================
+   BUTTON RESET
 ========================================================= */
 
 button {
     font-family: inherit;
 
-    border: none;
-    outline: none;
+    border: 0;
+    outline: 0;
 
     cursor: pointer;
 
     transition:
-        transform 0.25s ease,
+        transform 0.25s var(--ease),
         background-color 0.3s ease,
         color 0.3s ease,
         box-shadow 0.3s ease;
@@ -286,7 +281,7 @@ button:active {
 
 
 /* =========================================================
-   IOS BLUE BUTTON
+   IOS PRIMARY BUTTON
 ========================================================= */
 
 .btn,
@@ -302,28 +297,31 @@ button:active {
 
     border-radius: 16px;
 
-    background: var(--blue);
+    background: var(--primary);
 
     color: #ffffff;
 
     font-weight: 600;
 
     box-shadow:
-        0 5px 15px rgba(0, 122, 255, 0.25);
+        0 6px 18px rgba(0, 122, 255, 0.25);
 
-    transition: var(--transition);
+    transition:
+        transform 0.25s var(--ease),
+        background-color 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
 .btn:hover,
 .btn-primary:hover {
-    background: var(--blue-hover);
+    background: var(--primary-hover);
 
     color: #ffffff;
 
     transform: translateY(-2px);
 
     box-shadow:
-        0 8px 22px rgba(0, 122, 255, 0.3);
+        0 10px 25px rgba(0, 122, 255, 0.3);
 }
 
 
@@ -349,20 +347,18 @@ button:active {
 
     color: var(--text);
 
-    backdrop-filter: var(--blur);
-    -webkit-backdrop-filter: var(--blur);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 
     box-shadow: var(--shadow);
-
-    transition: var(--transition);
 }
 
 .btn-glass:hover {
+    color: var(--primary);
+
     transform: translateY(-2px);
 
     box-shadow: var(--shadow-hover);
-
-    color: var(--blue);
 }
 
 
@@ -377,13 +373,13 @@ select {
 
     padding: 13px 16px;
 
-    border: 1px solid var(--border-soft);
+    border: 1px solid var(--border-dark);
 
     border-radius: 16px;
 
     outline: none;
 
-    background: var(--glass-strong);
+    background: var(--glass-light);
 
     color: var(--text);
 
@@ -409,7 +405,7 @@ textarea::placeholder {
 input:focus,
 textarea:focus,
 select:focus {
-    border-color: var(--blue);
+    border-color: var(--primary);
 
     box-shadow:
         0 0 0 4px rgba(0, 122, 255, 0.12);
@@ -439,9 +435,7 @@ select:focus {
 
     background: var(--glass);
 
-    color: var(--blue);
-
-    font-weight: 600;
+    color: var(--primary);
 
     cursor: pointer;
 
@@ -451,14 +445,14 @@ select:focus {
     box-shadow: var(--shadow);
 
     transition:
+        transform 0.25s var(--ease),
         background-color 0.3s ease,
         color 0.3s ease,
-        transform 0.25s ease,
         box-shadow 0.3s ease;
 }
 
 #theme-toggle:hover {
-    color: var(--blue-hover);
+    color: var(--primary-hover);
 
     transform: scale(1.06);
 
@@ -471,7 +465,7 @@ select:focus {
 
 
 /* =========================================================
-   THEME TOGGLE ICONS
+   THEME ICONS
 ========================================================= */
 
 #theme-toggle svg {
@@ -483,7 +477,7 @@ select:focus {
     pointer-events: none;
 
     transition:
-        transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.4s var(--ease),
         opacity 0.25s ease;
 }
 
@@ -519,21 +513,19 @@ select:focus {
 
 
 /* =========================================================
-   IMAGES
+   IMAGE
 ========================================================= */
 
 img {
     max-width: 100%;
     height: auto;
 
-    border-radius: var(--radius-medium);
-
     display: block;
 }
 
 
 /* =========================================================
-   IOS STYLE AVATAR
+   AVATAR
 ========================================================= */
 
 .avatar {
@@ -566,7 +558,7 @@ img {
 
     background: rgba(0, 122, 255, 0.1);
 
-    color: var(--blue);
+    color: var(--primary);
 
     font-size: 13px;
 
@@ -579,13 +571,24 @@ img {
 ========================================================= */
 
 hr {
-    border: 0;
-
     height: 1px;
 
     margin: 20px 0;
 
-    background: var(--border-soft);
+    border: 0;
+
+    background: var(--border-dark);
+}
+
+
+/* =========================================================
+   SELECTION
+========================================================= */
+
+::selection {
+    background: rgba(0, 122, 255, 0.2);
+
+    color: var(--text);
 }
 
 
@@ -613,128 +616,102 @@ hr {
 
 
 /* =========================================================
-   SELECTION
-========================================================= */
-
-::selection {
-    background: rgba(0, 122, 255, 0.2);
-
-    color: var(--text);
-}
-
-
-/* =========================================================
-   DARK MODE
+   DARK MODE: SYSTEM
 ========================================================= */
 
 @media (prefers-color-scheme: dark) {
 
     :root {
-        --bg: #000000;
-
-        --bg-secondary: #1c1c1e;
+        --background: #000000;
+        --background-secondary: #1c1c1e;
 
         --text: #f5f5f7;
-
         --text-secondary: #98989d;
 
-        --blue: #0a84ff;
-
-        --blue-hover: #409cff;
+        --primary: #0a84ff;
+        --primary-hover: #409cff;
 
         --glass: rgba(28, 28, 30, 0.68);
-
-        --glass-strong: rgba(44, 44, 46, 0.82);
+        --glass-light: rgba(44, 44, 46, 0.82);
 
         --border: rgba(255, 255, 255, 0.12);
-
-        --border-soft: rgba(255, 255, 255, 0.1);
+        --border-dark: rgba(255, 255, 255, 0.1);
 
         --shadow:
             0 8px 30px rgba(0, 0, 0, 0.35),
             inset 0 1px 0 rgba(255, 255, 255, 0.05);
 
         --shadow-hover:
-            0 15px 40px rgba(0, 0, 0, 0.5),
+            0 16px 45px rgba(0, 0, 0, 0.5),
             inset 0 1px 0 rgba(255, 255, 255, 0.08);
     }
 }
 
 
 /* =========================================================
-   MANUAL DARK THEME
+   MANUAL DARK MODE
 ========================================================= */
 
 [data-theme="dark"] {
 
-    --bg: #000000;
-
-    --bg-secondary: #1c1c1e;
+    --background: #000000;
+    --background-secondary: #1c1c1e;
 
     --text: #f5f5f7;
-
     --text-secondary: #98989d;
 
-    --blue: #0a84ff;
-
-    --blue-hover: #409cff;
+    --primary: #0a84ff;
+    --primary-hover: #409cff;
 
     --glass: rgba(28, 28, 30, 0.68);
-
-    --glass-strong: rgba(44, 44, 46, 0.82);
+    --glass-light: rgba(44, 44, 46, 0.82);
 
     --border: rgba(255, 255, 255, 0.12);
-
-    --border-soft: rgba(255, 255, 255, 0.1);
+    --border-dark: rgba(255, 255, 255, 0.1);
 
     --shadow:
         0 8px 30px rgba(0, 0, 0, 0.35),
         inset 0 1px 0 rgba(255, 255, 255, 0.05);
 
     --shadow-hover:
-        0 15px 40px rgba(0, 0, 0, 0.5),
+        0 16px 45px rgba(0, 0, 0, 0.5),
         inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 
 /* =========================================================
-   MANUAL LIGHT THEME
+   MANUAL LIGHT MODE
 ========================================================= */
 
 [data-theme="light"] {
 
-    --bg: #f5f5f7;
-
-    --bg-secondary: #ffffff;
+    --background: #f5f5f7;
+    --background-secondary: #ffffff;
 
     --text: #1d1d1f;
-
     --text-secondary: #6e6e73;
 
-    --blue: #007aff;
+    --primary: #007aff;
+    --primary-hover: #006ee6;
 
-    --blue-hover: #006ee6;
-
-    --glass: rgba(255, 255, 255, 0.68);
-
-    --glass-strong: rgba(255, 255, 255, 0.82);
+    --glass: rgba(255, 255, 255, 0.62);
+    --glass-light: rgba(255, 255, 255, 0.78);
 
     --border: rgba(255, 255, 255, 0.55);
-
-    --border-soft: rgba(0, 0, 0, 0.08);
+    --border-dark: rgba(0, 0, 0, 0.08);
 
     --shadow:
         0 8px 30px rgba(0, 0, 0, 0.08),
         inset 0 1px 0 rgba(255, 255, 255, 0.7);
 
     --shadow-hover:
-        0 15px 40px rgba(0, 0, 0, 0.12),
+        0 16px 45px rgba(0, 0, 0, 0.12),
         inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
 
 /* =========================================================
-   RESPONSIVE DESIGN
+   MOBILE
 ========================================================= */
 
 @media (max-width: 768px) {
@@ -743,9 +720,9 @@ hr {
         font-size: 15px;
     }
 
-    .card,
     .glass,
-    .glass-strong {
+    .glass-strong,
+    .card {
         border-radius: 22px;
     }
 
